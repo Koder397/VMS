@@ -1,0 +1,70 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Data Tables
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>CONTACT</th>
+                    <th>LICENCE NUMBER</th>
+                    <th>JOIN DATE</th>
+                    <th>INCHARGE</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for element in object_list %}
+                    <tr>
+                      <td>{{ element.id }}</td>
+                      <td>{{ element.name }}</td>
+                      <td>{{ element.contact }}</td>
+                      <td>{{ element.licence_number }}</td>
+                      <td>{{ element.driver_joining_date }}</td>
+                      <td>{{ element.driver_incharge }}</td>
+                      <td><a href="/insurance/update/{{ element.id }}" Class="btn btn-success">Update</a>
+                      <a href="/insurance/delete/{{ element.id }}" Class="btn btn-danger">Delete</a></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+{% endblock %}
